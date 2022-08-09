@@ -1,13 +1,197 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Space Grotesk', sans-serif;
+  -moz-appearance: textfield;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.form>* {
+  width: 365px;
+}
+
+.form>label {
+  margin-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+input {
+  height: 40px;
+  border-style: solid;
+  padding: 0 0 0 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+
+button {
+  cursor: pointer;
+  margin-top: 15px;
+  padding: 12px;
+  background-color: hsl(278, 68%, 11%);
+  color: white;
+  border-style: none;
+  border-radius: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.lastformpart {
+  display: flex;
+}
+
+.form-month,
+.form-year {
+  width: 80px;
+}
+
+.form-cvc {
+  width: 175px;
+}
+
+
+.sidebar-container {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 50rem;
+}
+
+.sidebar-background-image>img {
+  position: relative;
+  height: 100vh;
+  width: 25rem;
+}
+
+.front-card {
+  position: relative;
+  display: flex;
+}
+
+.front-card>img {
+  position: absolute;
+  top: 8rem;
+  left: -16rem;
+  width: 24rem;
+}
+
+
+.front-card>.card-logo {
+  width: 6rem;
+  padding: 1rem;
+}
+
+.frontcard-cardnumber {
+  position: absolute;
+  top: 16rem;
+  left: -14rem;
+  font-size: 23px;
+  width: 20rem;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.frontcard-fullname {
+  position: absolute;
+  top: 19rem;
+  left: -14rem;
+  font-size: 14px;
+  width: 20rem;
+  color: white;
+  text-transform: uppercase;
+}
+
+.frontcard-expdate {
+  position: absolute;
+  top: 19rem;
+  left: 3rem;
+  font-size: 14px;
+  width: 20rem;
+  color: white;
+}
+
+.back-card {
+  position: relative;
+  display: flex;
+}
+
+.back-card>img {
+  position: absolute;
+  top: 23rem;
+  left: -11rem;
+  width: 24rem;
+}
+
+.back-card>span {
+  position: absolute;
+  top: 28.9rem;
+  left: 8.5rem;
+  font-size: 14px;
+  width: 20rem;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.cardconfirmed-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cardconfirmed {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: hsl(278, 68%, 11%);
+}
+
+.cardconfirmed>img {
+  margin-left: 8.5rem;
+  margin-bottom: 2rem;
+  width: 8rem;
+}
+
+.cardconfirmed>button {
+  margin-top: 2rem;
+  width: 25rem;
+}
+
+.cardconfirmed>h1{
+  letter-spacing: 4px;
+  font-size: 26px;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+
+.cardconfirmed>h4{
+  color: hsl(279, 6%, 55%);
+  font-size: 15px;
+  letter-spacing: 1px;
 }
