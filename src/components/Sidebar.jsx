@@ -3,7 +3,14 @@ import sideimg from '../images/bg-main-desktop.png'
 import frontcard from '../images/bg-card-front.png'
 import backcard from '../images/bg-card-back.png'
 import cardlogo from '../images/card-logo.svg'
-function Sidebar({ user, userToShow }) {
+function Sidebar({ user }) {
+  const userToShow = {
+    fullname: "Jane Appleseed",
+    cardnumber: "0000 0000 0000 0000",
+    expmonth: "00",
+    expyear: "00",
+    cvc: "123"
+  }
   let userCardnumberWithSpaces = ""
   function cardnumberAddSpaces(cardnumber, spaces) {
     cardnumber = user.cardnumber

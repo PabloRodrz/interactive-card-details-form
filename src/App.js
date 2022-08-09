@@ -3,13 +3,6 @@ import Form from "./components/Form";
 import Sidebar from "./components/Sidebar";
 import CardConfirmed from "./components/CardConfirmed";
 function App() {
-  const [userToShow, setUserToShow] = useState({
-    fullname: "Jane Appleseed",
-    cardnumber: "0000 0000 0000 0000",
-    expmonth: "00",
-    expyear: "00",
-    cvc: "123"
-  })
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [user, setUser] = useState({
     fullname: "",
@@ -19,7 +12,6 @@ function App() {
     cvc: ""
   })
   const [isInvalid, setIsInvalid] = useState(true)
-
   const handleChange = (e) => {
     switch (e.target.name) {
       case "fullname":
@@ -66,8 +58,9 @@ function App() {
         break;
     }
   }
+  console.log(user.cardnumber.length)
   const handleSubmit = (e) => {
-    //cambiar el borde a rojo y mostrar un mensajito de que está mal en los inputs
+    //usar isInvalid para cambiar el borde a rojo y mostrar un mensajito de que está mal en los inputs
     e.preventDefault()
     if (user.fullname.length < 6) {
       setIsInvalid(true)
@@ -75,25 +68,25 @@ function App() {
     } else {
       setIsInvalid(false)
     }
-    if (user.cardnumber < 19) {
+    if (user.cardnumber.length < 16) {
       setIsInvalid(true)
       return
     } else {
       setIsInvalid(false)
     }
-    if (user.expmonth < 2) {
+    if (user.expmonth.length < 2) {
       setIsInvalid(true)
       return
     } else {
       setIsInvalid(false)
     }
-    if (user.expyear < 2) {
+    if (user.expyear.length < 2) {
       setIsInvalid(true)
       return
     } else {
       setIsInvalid(false)
     }
-    if (user.cvc < 3) {
+    if (user.cvc.length < 3) {
       setIsInvalid(true)
       return
     } else {
@@ -104,11 +97,9 @@ function App() {
   }
   return (
     <div className="app">
-      <Sidebar user={user} userToShow={userToShow} />
+      <Sidebar user={user} />
       {formSubmitted
         ? <CardConfirmed
-          userToShow={userToShow}
-          setUserToShow={setUserToShow}
           user={user}
           setUser={setUser}
           setFormSubmitted={setFormSubmitted} />
