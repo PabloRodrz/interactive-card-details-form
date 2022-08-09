@@ -58,9 +58,9 @@ function App() {
         break;
     }
   }
-  console.log(user.cardnumber.length)
   const handleSubmit = (e) => {
     //usar isInvalid para cambiar el borde a rojo y mostrar un mensajito de que está mal en los inputs
+    //chequear número máximo en mes y año 
     e.preventDefault()
     if (user.fullname.length < 6) {
       setIsInvalid(true)
