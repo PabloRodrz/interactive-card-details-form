@@ -3,14 +3,8 @@ import sideimg from '../images/bg-main-desktop.png'
 import frontcard from '../images/bg-card-front.png'
 import backcard from '../images/bg-card-back.png'
 import cardlogo from '../images/card-logo.svg'
-function Sidebar({ user }) {
-  const userToShow = {
-    fullname: "Jane Appleseed",
-    cardnumber: "0000 0000 0000 0000",
-    expmonth: "00",
-    expyear: "00",
-    cvc: "123"
-  }
+function Sidebar({ user, userToShow }) {
+
   let userCardnumberWithSpaces = ""
   function cardnumberAddSpaces(cardnumber, spaces) {
     cardnumber = user.cardnumber
@@ -38,7 +32,7 @@ function Sidebar({ user }) {
       <div className='front-card'>
         <img src={frontcard} alt="frontcard" />
         <img className='card-logo' src={cardlogo} alt="cardlogo" />
-        {user.cardnumber ? <span className='frontcard-cardnumber'>{userCardnumberWithSpaces}</span>
+        {user.cardnumber ? <span className='frontcard-cardnumber'>{userToShow.cardnumber}</span>
           : <span className='frontcard-cardnumber'>{userToShow.cardnumber}</span>}
         {user.fullname ? <span className="frontcard-fullname">{user.fullname}</span>
           : <span className="frontcard-fullname">{userToShow.fullname}</span>
