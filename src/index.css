@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 
+@media only screen and (max-width: 800px) {}
+
+.invalid {
+  border-color: red;
+}
+
+.invalidInput {
+  color: red;
+  font-size: 12px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -36,6 +47,15 @@ body {
   margin-bottom: 4px;
   font-size: 12px;
   letter-spacing: 1.5px;
+}
+/* Fixear mensaje invalido margin bottom de los inputs
+   responsive
+*/
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 input {
@@ -183,14 +203,14 @@ button {
   width: 25rem;
 }
 
-.cardconfirmed>h1{
+.cardconfirmed>h1 {
   letter-spacing: 4px;
   font-size: 26px;
   font-weight: lighter;
   margin-bottom: 1rem;
 }
 
-.cardconfirmed>h4{
+.cardconfirmed>h4 {
   color: hsl(279, 6%, 55%);
   font-size: 15px;
   letter-spacing: 1px;

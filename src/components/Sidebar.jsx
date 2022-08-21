@@ -6,24 +6,43 @@ import cardlogo from '../images/card-logo.svg'
 function Sidebar({ user, userToShow }) {
 
   let userCardnumberWithSpaces = ""
-  function cardnumberAddSpaces(cardnumber, spaces) {
-    cardnumber = user.cardnumber
-    spaces = [4, 8, 12]
-    let M = cardnumber.length
-    let N = spaces.length
-    let l = 0;
-    let r = 0;
-    userCardnumberWithSpaces = new Array(M + N).fill(' ');
-    for (let i = 0; i < M + N; i++) {
-      if (l < N && i === spaces[l] + l)
-        l++;
-      else
-        userCardnumberWithSpaces[i] = cardnumber[r++];
+
+
+  const updateValuesForShow = ( value, originalString ) => {
+    if(!value){
+      return;
     }
-    return userCardnumberWithSpaces.join('');
+    
+    let originalCardNumberSplitted = originalString.split("")
+    for (let index = 0; index < value.length; index++) {
+      if(index > 3 && index < 8 ){
+        originalCardNumberSplitted[index + 1] = value[index];
+        continue;
+      }
+
+      if(index > 7 && index < 12 ){
+        originalCardNumberSplitted[index + 2] = value[index];
+        continue;
+      }
+
+      
+      if(index > 11 ){
+        originalCardNumberSplitted[index + 3] = value[index];
+        continue;
+      }
+      originalCardNumberSplitted[index] = value[index];
+      
+    }
+
+   return originalCardNumberSplitted.join("");
+    
   }
 
-  cardnumberAddSpaces(user)
+  userCardnumberWithSpaces = updateValuesForShow(user.cardnumber, userToShow.cardnumber)
+  const monthToShow = updateValuesForShow(user.expmonth, userToShow.expmonth)
+  const yearToShow = updateValuesForShow(user.expyear, userToShow.expyear)
+  const cvcToShow = updateValuesForShow(user.cvc, userToShow.cvc)
+
   return (
     <div className='sidebar-container'>
       <div className="sidebar-background-image">
@@ -32,16 +51,16 @@ function Sidebar({ user, userToShow }) {
       <div className='front-card'>
         <img src={frontcard} alt="frontcard" />
         <img className='card-logo' src={cardlogo} alt="cardlogo" />
-        {user.cardnumber ? <span className='frontcard-cardnumber'>{userToShow.cardnumber}</span>
+        {user.cardnumber ? <span className='frontcard-cardnumber'>{userCardnumberWithSpaces}</span>
           : <span className='frontcard-cardnumber'>{userToShow.cardnumber}</span>}
         {user.fullname ? <span className="frontcard-fullname">{user.fullname}</span>
           : <span className="frontcard-fullname">{userToShow.fullname}</span>
         }
-        <span className="frontcard-expdate">{user.expmonth ? user.expmonth : userToShow.expmonth}/{user.expyear? user.expyear : userToShow.expyear}</span>
+        <span className="frontcard-expdate">{user.expmonth ? monthToShow : userToShow.expmonth}/{user.expyear? yearToShow : userToShow.expyear}</span>
       </div>
       <div className='back-card'>
         <img src={backcard} alt="backcard" />
-        {user.cvc ? <span>{user.cvc}</span> : <span>{userToShow.cvc}</span>}
+        {user.cvc ? <span>{cvcToShow}</span> : <span>{userToShow.cvc}</span>}
       </div>
     </div>
   )

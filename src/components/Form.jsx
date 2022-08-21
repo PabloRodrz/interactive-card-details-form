@@ -4,18 +4,20 @@ const Form = (props) => {
   return (
     <div className="form-container">
       <form className="form" onSubmit={props.handleSubmit}>
+        <div className="input-container">
         <label>CARDHOLDER NAME</label>
-        <input required
+        <input className={props.isInvalid.fullnameIsInvalid}
           type="text"
           pattern="[A-Za-z\s]*"
           name="fullname"
           placeholder="e.g Jane Appleseed"
           onChange={props.handleChange}
           value={props.user.fullname}
-        />
-
+          />
+          {props.isInvalid.fullnameIsInvalid && <div className="invalidInput">Fill with your name</div> }
+          </div>
         <label>CARD NUMBER</label>
-        <input required
+        <input className={props.isInvalid.cardnumberIsInvalid}
           maxLength={16}
           type="text"
           pattern="[0-9]*"
@@ -27,9 +29,9 @@ const Form = (props) => {
         <div className="lastformpart">
           <div style={{ display: "block" }}>
             <label>EXP. DATE (MM/YY)</label>
-            <input required
+            <input 
               maxLength={2}
-              className="form-month"
+              className={`form-month ${props.isInvalid.expmonthIsInvalid}`}
               pattern="[0-9]*"
               type="text"
               name="expmonth"
@@ -37,9 +39,9 @@ const Form = (props) => {
               onChange={props.handleChange}
               value={props.user.expmonth}
             />
-            <input required
+            <input 
               maxLength={2}
-              className="form-year"
+              className={`form-year ${props.isInvalid.expyearIsInvalid}`}
               pattern="[0-9]*"
               type="text"
               name="expyear"
@@ -50,9 +52,9 @@ const Form = (props) => {
           </div>
           <div style={{ display: "block" }}>
             <label>CVC</label>
-            <input required
+            <input 
               maxLength={3}
-              className="form-cvc"
+              className={`form-cvc ${props.isInvalid.cvcIsInvalid}`}
               pattern="[0-9]*"
               type="text"
               name="cvc"
