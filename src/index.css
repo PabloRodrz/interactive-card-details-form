@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
 
-@media only screen and (max-width: 800px) {}
+/* responsive */
+
 
 .invalid {
   border-color: red;
@@ -9,6 +10,23 @@
 .invalidInput {
   color: red;
   font-size: 12px;
+  letter-spacing: 1px;
+  margin-left: 5px;
+}
+
+.invalidInputMonth {
+  color: red;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.invalidInputCVC {
+  margin-left: 24px;
+  color: red;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: block;
 }
 
 * {
@@ -36,35 +54,34 @@ body {
 .form-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .form>* {
   width: 365px;
 }
 
-.form>label {
-  margin-bottom: 4px;
+.input-container {
+  margin-bottom: 20px;
+  width: 365px !important;
+}
+
+.input-container>label {
+  margin-bottom: 5px;
+  margin-left: 2px;
   font-size: 12px;
   letter-spacing: 1.5px;
+  display: block;
+  width: auto;
 }
-/* Fixear mensaje invalido margin bottom de los inputs
-   responsive
-*/
-.input-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+
 
 input {
   height: 40px;
   border-style: solid;
   padding: 0 0 0 10px;
   border-radius: 8px;
-  margin-bottom: 20px;
   margin-right: 5px;
+  width: 365px;
 }
 
 button {
@@ -88,11 +105,26 @@ button {
 
 .form-month,
 .form-year {
+  width: 80px !important;
+  display: inline-block;
+}
+
+.form-year>input {
+  margin-left: 4px;
+}
+
+.form-month>input,
+.form-year>input {
   width: 80px;
 }
 
 .form-cvc {
   width: 175px;
+  margin-left: 20px;
+}
+
+.label-cvc {
+  margin-left: 20px !important;
 }
 
 
@@ -103,7 +135,7 @@ button {
   width: 50rem;
 }
 
-.sidebar-background-image>img {
+.desktop-sidebar-img {
   position: relative;
   height: 100vh;
   width: 25rem;
@@ -120,7 +152,6 @@ button {
   left: -16rem;
   width: 24rem;
 }
-
 
 .front-card>.card-logo {
   width: 6rem;
@@ -214,4 +245,90 @@ button {
   color: hsl(279, 6%, 55%);
   font-size: 15px;
   letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 800px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .form-container {
+    margin-top: 10px;
+    margin-left: 1rem;
+  }
+
+  .sidebar-container {
+    height: 20rem;
+    width: 100vh;
+  }
+
+  .mobile-sidebar-img {
+    width: 100vh;
+    height: 14rem;
+  }
+
+  .front-card {
+    position: absolute;
+  }
+
+  .front-card>img {
+    left: 1rem;
+    width: 17rem;
+  }
+
+  .frontcard-cardnumber {
+    left: 1.8rem;
+    top: 14rem;
+    font-size: 17px;
+    width: 20rem;
+    color: white;
+    letter-spacing: 3px;
+  }
+
+  .frontcard-fullname {
+    left: 1.8rem;
+    top: 15.8rem;
+    font-size: 12px;
+    width: 20rem;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .frontcard-expdate {
+    top: 15.8rem;
+    left: 14.6rem;
+    font-size: 12px;
+    width: 20rem;
+    color: white;
+  }
+/*PONER BACKCARD DETRAS DE FRONTCARD*/
+  .back-card {
+    position: absolute;
+  }
+
+  .back-card>img {
+    top: 2rem;
+    left: 5rem;
+    width: 17rem;
+  }
+
+  .back-card>span {
+    position: absolute;
+    top: 6.1rem;
+    left: 18.5rem;
+    font-size: 12px;
+    width: 20rem;
+    color: white;
+    letter-spacing: 2px;
+  }
+
+  .cardconfirmed {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: hsl(278, 68%, 11%);
+    width: 80vh;
+  }
+
 }

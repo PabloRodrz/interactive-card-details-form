@@ -75,7 +75,6 @@ function App() {
   }
 
   const handleSubmit = (e) => {
-    //mostrar un mensajito de que está mal en los inputs
     e.preventDefault()
     let isFormInvalid = false
     let isInvalidCopy = {
@@ -84,35 +83,35 @@ function App() {
     if (user.fullname.length < 6) {
       isInvalidCopy.fullnameIsInvalid = "invalid"
       isFormInvalid = true
-    } else{
+    } else {
       isInvalidCopy.fullnameIsInvalid = ""
     }
-     if (user.cardnumber.length < 16) {
+    if (user.cardnumber.length < 16) {
       isInvalidCopy.cardnumberIsInvalid = "invalid"
       isFormInvalid = true
-    } else{
+    } else {
       isInvalidCopy.cardnumberIsInvalid = ""
     }
     if (user.expmonth.length < 2) {
       isInvalidCopy.expmonthIsInvalid = "invalid"
       isFormInvalid = true
-    } else{
+    } else {
       isInvalidCopy.expmonthIsInvalid = ""
     }
     if (user.expyear.length < 2) {
       isInvalidCopy.expyearIsInvalid = "invalid"
       isFormInvalid = true
-    } else{
+    } else {
       isInvalidCopy.expyearIsInvalid = ""
     }
     if (user.cvc.length < 3) {
       isInvalidCopy.cvcIsInvalid = "invalid"
       isFormInvalid = true
-    } else{
+    } else {
       isInvalidCopy.cvcIsInvalid = ""
     }
     setIsInvalid(isInvalidCopy)
-    if (isFormInvalid){
+    if (isFormInvalid) {
       return
     }
 

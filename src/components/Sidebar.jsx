@@ -3,39 +3,40 @@ import sideimg from '../images/bg-main-desktop.png'
 import frontcard from '../images/bg-card-front.png'
 import backcard from '../images/bg-card-back.png'
 import cardlogo from '../images/card-logo.svg'
+import sideimgmobile from '../images/bg-main-mobile.png'
 function Sidebar({ user, userToShow }) {
 
   let userCardnumberWithSpaces = ""
 
 
-  const updateValuesForShow = ( value, originalString ) => {
-    if(!value){
+  const updateValuesForShow = (value, originalString) => {
+    if (!value) {
       return;
     }
-    
+
     let originalCardNumberSplitted = originalString.split("")
     for (let index = 0; index < value.length; index++) {
-      if(index > 3 && index < 8 ){
+      if (index > 3 && index < 8) {
         originalCardNumberSplitted[index + 1] = value[index];
         continue;
       }
 
-      if(index > 7 && index < 12 ){
+      if (index > 7 && index < 12) {
         originalCardNumberSplitted[index + 2] = value[index];
         continue;
       }
 
-      
-      if(index > 11 ){
+
+      if (index > 11) {
         originalCardNumberSplitted[index + 3] = value[index];
         continue;
       }
       originalCardNumberSplitted[index] = value[index];
-      
+
     }
 
-   return originalCardNumberSplitted.join("");
-    
+    return originalCardNumberSplitted.join("");
+
   }
 
   userCardnumberWithSpaces = updateValuesForShow(user.cardnumber, userToShow.cardnumber)
@@ -46,7 +47,8 @@ function Sidebar({ user, userToShow }) {
   return (
     <div className='sidebar-container'>
       <div className="sidebar-background-image">
-        <img src={sideimg} alt="sideimg" />
+        {window.innerWidth <= 800 ? <img className='mobile-sidebar-img' src={sideimgmobile} alt="sideimgmob" />
+         : <img className='desktop-sidebar-img' src={sideimg} alt="sideimg" />}
       </div>
       <div className='front-card'>
         <img src={frontcard} alt="frontcard" />
@@ -56,7 +58,7 @@ function Sidebar({ user, userToShow }) {
         {user.fullname ? <span className="frontcard-fullname">{user.fullname}</span>
           : <span className="frontcard-fullname">{userToShow.fullname}</span>
         }
-        <span className="frontcard-expdate">{user.expmonth ? monthToShow : userToShow.expmonth}/{user.expyear? yearToShow : userToShow.expyear}</span>
+        <span className="frontcard-expdate">{user.expmonth ? monthToShow : userToShow.expmonth}/{user.expyear ? yearToShow : userToShow.expyear}</span>
       </div>
       <div className='back-card'>
         <img src={backcard} alt="backcard" />
