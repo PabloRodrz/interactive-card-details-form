@@ -258,6 +258,8 @@ button {
   }
 
   .form-container {
+    display: flex;
+    justify-content: center;
     margin-top: 10px;
     margin-left: 1rem;
   }
