@@ -16,6 +16,7 @@ function App() {
     cardnumberIsInvalid: "",
     expmonthIsInvalid: "",
     expyearIsInvalid: "",
+    monthValueIsInvalid: "",
     cvcIsInvalid: ""
   })
 
@@ -92,6 +93,12 @@ function App() {
     } else {
       isInvalidCopy.cardnumberIsInvalid = ""
     }
+    if (+user.expmonth > 12 || +user.expmonth < 1) {
+      isInvalidCopy.monthValueIsInvalid = "invalid"
+      isFormInvalid = true
+    } else {
+      isInvalidCopy.monthValueIsInvalid = ""
+    }
     if (user.expmonth.length < 2) {
       isInvalidCopy.expmonthIsInvalid = "invalid"
       isFormInvalid = true
@@ -128,7 +135,8 @@ function App() {
         : <Form user={user}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          isInvalid={isInvalid} />}
+          isInvalid={isInvalid}
+        />}
     </div>
   );
 }

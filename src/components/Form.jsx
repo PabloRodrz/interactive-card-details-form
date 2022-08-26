@@ -35,7 +35,7 @@ const Form = (props) => {
             <div className="form-month">
               <input
                 maxLength={2}
-                className={`${props.isInvalid.expmonthIsInvalid}`}
+                className={`${props.isInvalid.expmonthIsInvalid} ${props.isInvalid.monthValueIsInvalid}`}
                 pattern="[0-9]*"
                 type="text"
                 name="expmonth"
@@ -56,7 +56,9 @@ const Form = (props) => {
                 value={props.user.expyear}
               />
             </div>
-            {props.isInvalid.expmonthIsInvalid && <div className="invalidInputMonth">Both month and year should have 2 numbers</div>}
+            {props.isInvalid.expmonthIsInvalid && <div className="invalidInputMonth">Month should have 2 numbers</div>}
+            {props.isInvalid.expyearIsInvalid && <div className="invalidInputMonth">Year should have 2 numbers</div>}
+            {props.isInvalid.monthValueIsInvalid && <div className="invalidInputMonth">Month should be a number between 01 and 12</div>}
           </div>
           <div className="input-container">
             <label className="label-cvc">CVC</label>

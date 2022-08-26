@@ -1,6 +1,6 @@
 import React from 'react'
 import iconComplete from '../images/icon-complete.svg'
-function CardConfirmed({ setFormSubmitted, user, setUser, userToShow, setUserToShow }) {
+function CardConfirmed({ setFormSubmitted, user, setUser }) {
   const handleChange = () => {
     setFormSubmitted(false)
     setUser(user = {
